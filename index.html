@@ -8,22 +8,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <h1 class="text-3xl font-bold text-center">Formulario en Línea</h1>
+    <h1 class="text-3xl font-bold text-center pt-5 sm:pt-10 lg:pt-12">Formulario en Línea</h1>
     <form action="">
-        <div class="flex flex-col py-5 px-5 gap-5">
-            <h2 class="text-2xl font-bold text-center">Datos Básicos</h2>
-            <div>
-                <h3 class="text-lg font-semibold">Nombre:</h3>
-                <input class="border-2 border-black rounded-full py-1.5 px-3 w-full" type="text" placeholder="Introduzca su nombre completo" name="nombre" id="nombre">
+        <div class="flex flex-col py-5 px-5 gap-5 md:px-10 lg:px-20 xl:px-28 2xl:mx-40">
+            <h2 class="text-2xl font-bold text-center sm:text-left">Datos Básicos</h2>
+            <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5 sm:mb-10 md:gap-20">
+                <div class="sm:w-[50%] lg:w-[392px]">
+                    <label for="nombre"><h3 class="text-lg font-semibold">Nombre:</h3></label>
+                    <input class="border-2 border-black rounded-full py-1.5 px-3 w-full " type="text" placeholder="Introduzca su nombre completo" name="nombre" id="nombre">
+                </div>
+                <div class="sm:w-[50%] lg:w-[392px]">
+                    <label for="fecha_nacimiento"><h3 class="text-lg font-semibold">Fecha de Nacimiento:</h3></label>
+                    <input class="border-2 border-black rounded-full py-1.5 px-3 w-full" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2007-04-01">
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold">Fecha de nacimiento:</h3>
-                <input class="border-2 border-black rounded-full py-1.5 px-3 w-full" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+            <h2 class="text-2xl font-bold text-center sm:text-left">Datos de Contacto</h2>
+            <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5 sm:mb-10 md:gap-20">
+                <div class="sm:w-[50%] lg:w-[392px]">
+                    <label for="telefono"><h3 class="text-lg font-semibold">Número de Teléfono:</h3></label>
+                    <input class="border-2 border-black rounded-full py-1.5 px-3 w-full " type="number" inputmode="numeric" pattern="[0-9]*" name="telefono" id="telefono" placeholder="Introduzca su número de teléfono">
+                </div> 
+                <div class="sm:w-[50%] lg:w-[392px]">
+                    <label for="correo"><h3 class="text-lg font-semibold">Correo Electrónico:</h3></label>
+                    <input class="border-2 border-black rounded-full py-1.5 px-3 w-full " type="email" name="correo" id="correo" placeholder="Introduzca su correo electrónico">
+                </div> 
             </div>
-            <h2 class="text-2xl font-bold text-center">Datos de Contacto</h2>
-            <div>
-                <h3 class="text-lg font-semibold">Número de Teléfono:</h3>
-                <input class="border-2 border-black rounded-full py-1.5 px-3 w-full" type="tel">
+            <address class="flex flex-col gap-5 not-italic"> 
+                <h2 class="text-2xl font-bold text-center sm:text-left">Dirección</h2>
+                <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5 sm:mb-10 md:gap-5">
+                    <div class="sm:w-[32.5%]">
+                        <label for="pais"><h3 class="text-lg font-semibold">País:</h3></label>
+                        <select class="border-2 border-black rounded-full py-1.5 px-3 w-full" id="pais" name="pais">
+                            <option value="" selected disabled>Seleccione un País:</option>
+                            <option value="es">España</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="us">Estados Unidos</option>
+                        </select>
+                    </div>
+                    <div class="sm:w-[35%] ">
+                        <label for="estado"><h3 class="text-lg font-semibold">Estado:</h3></label>
+                        <select class="border-2 border-black rounded-full py-1.5 px-3 w-full" id="estado" name="estado">
+                            <option value="" selected disabled>Seleccione un Estado:</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="caracas">Caracas</option>
+                            <option value="new_york">New York</option>
+                        </select>
+                    </div>
+                    <div class="sm:w-[32.5%]">
+                        <label for="codigo_postal"><h3 class="text-lg font-semibold">Código Postal:</h3></label>
+                        <input class="border-2 border-black rounded-full py-1.5 px-3 w-full placeholder:text-[13px] md:placeholder:text-[15px]" placeholder="Introduzca el código postal" name="codigo_postal" id="codigo_postal" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9">
+                    </div>
+                </div>
+            </address>
+            <div class="mt-5 flex flex-col justify-center items-center sm:mt-10">
+                <input class="border-2 border-black rounded-full py-1.5 px-3 w-full max-w-[864px]"  type="submit" value="Enviar">
             </div>
         </div>
     </form>
