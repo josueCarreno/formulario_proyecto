@@ -5,71 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel="stylesheet" href="src/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
-<body class="bg-blue-900/75">
-    <main class="flex justify-center items-center min-h-screen">
-        <form action="">
+<body class="">
+    <main class="p-4 md:p-6 min-h-screen bg-[linear-gradient(to_bottom_right,#2660E7,#3535A9)] md:flex justify-center items-center">
+        <form action="" class=" lg:w-[768px]">
+            <!-- Titulo -->
+            <div class="p-6 bg-[linear-gradient(to_right,#1D4DD6,#1E3C90)] rounded-t-[10px] ">
+                <h1 class="text-2xl sm:text-[30px] font-bold text-center  text-white">FORMULARIO EN LÍNEA</h1>
+            </div>
             <!-- Contenedor Global -->
-            <div class="flex flex-col py-2.5 px-4 my-5 sm:py-10 mx-6 gap-2.5 md:px-10 lg:px-20 xl:px-36 2xl:mx-40 bg-[#F5F7FA] rounded-2xl">
-                <!-- Titulo -->
-                <h1 class="text-[21px] sm:text-[24px] font-bold text-center  text-blue-900 underline">FORMULARIO EN LÍNEA</h1>
+            <div class="flex flex-col py-6 px-4 sm:p-6 md:px-8  gap-2.5  bg-[#F5F7FA] rounded-b-[10px] " >
                 <!-- Sección Datos Básicos -->
-                <h2 class="text-[20px] font-bold  mt-4 bg-blue-900 text-white text-center rounded-full">Datos Básicos</h2>
-                <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5  md:gap-20">
-                    <div class="sm:w-[50%] ">
-                        <label for="nombre"><h3 class="text-lg font-semibold ">Nombre:</h3></label>
-                        <input class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white placeholder:text-[15px] md:placeholder:text-[17px]" type="text" placeholder="Introduzca su nombre completo" name="nombre" id="nombre">
+                <h2 class="text-[18px] font-semibold text-[#1E40AF] pb-2 mb-4 border-b-2 border-gray-200/60">Datos Básicos</h2>
+                <div class="flex flex-col gap-6 md:flex-row justify-between ">
+                    <div class="md:w-[50%] ">
+                        <label for="nombre"><h3 class="text-[14px]  font-semibold ">Nombre: <span class="text-red-700">*</span></h3></label>
+                        <input class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 px-3 w-full focus:outline-2 outline-[#3B82F6]" type="text" placeholder="Introduzca su nombre completo" name="nombre" id="nombre" required>
                     </div>
-                    <div class="sm:w-[50%] ">
-                        <label for="fecha_nacimiento"><h3 class="text-lg font-semibold ">Fecha de Nacimiento:</h3></label>
-                        <input class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white" type="date" name="fecha_nacimiento" id="fecha_nacimiento" max="2007-04-01">
+                    <div class="md:w-[50%] ">
+                        <label for="fecha-input"><h3 class="text-[14px]  font-semibold ">Fecha de Nacimiento: <span class="text-red-700">*</span></h3></label>
+                        <div class="relative">
+                            <input class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 px-3 w-full text-gray-500 focus:outline-2 outline-[#3B82F6]" name="fecha_nacimiento" id="fecha-input" placeholder="DD/MM/AAAA" required type="text">
+                            <img class="absolute bottom-4 right-2.5" width="16px" src="images/calendario.svg" alt="">
+                        </div>
                     </div>
                 </div>
                 <!-- Sección Datos de Contacto -->
-                <h2 class="text-[20px] font-bold   mt-4 bg-blue-900 text-white text-center rounded-full">Datos de Contacto</h2>
-                <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5  md:gap-20">
-                    <div class="sm:w-[50%] ">
-                        <label for="telefono"><h3 class="text-lg font-semibold ">Número de Teléfono:</h3></label>
-                        <input class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white placeholder:text-[14px] md:placeholder:text-[17px]" type="number" inputmode="numeric" pattern="[0-9]*" name="telefono" id="telefono" placeholder="Introduzca su número de teléfono">
+                <h2 class="text-[18px] font-semibold text-[#1E40AF] pb-2 mb-4 border-b-2 border-gray-200/60">Datos de Contacto</h2>
+                <div class="flex flex-col gap-5 md:flex-row justify-between ">
+                    <div class="md:w-[50%] ">
+                        <label for="telefono"><h3 class="text-[14px]  font-semibold ">Número de Teléfono: <span class="text-red-700">*</span></h3></label>
+                        <div class="relative">
+                            <input class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 pr-3 pl-8 w-full focus:outline-2 outline-[#3B82F6]" type="number" inputmode="numeric" pattern="[0-9]*" name="telefono" id="telefono" placeholder="Introduzca su número de teléfono" required>
+                            <img class="absolute bottom-4 left-2.5" width="16px"  src="images/telefono.svg" alt="">
+                        </div>
                     </div> 
-                    <div class="sm:w-[50%] ">
-                        <label for="correo"><h3 class="text-lg font-semibold ">Correo Electrónico:</h3></label>
-                        <input class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white placeholder:text-[14px] md:placeholder:text-[17px]" type="email" name="correo" id="correo" placeholder="Introduzca su correo electrónico">
+                    <div class="md:w-[50%] ">
+                        <label for="correo"><h3 class="text-[14px]  font-semibold ">Correo Electrónico:</h3></label>
+                        <div class="relative">
+                            <input class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 pr-3 pl-8  w-full focus:outline-2 outline-[#3B82F6]" type="email" name="correo" id="correo" placeholder="Introduzca su correo electrónico">
+                            <img class="absolute bottom-4 left-2.5" width="16px"  src="images/correo.svg" alt="">
+                        </div>
                     </div> 
                 </div>
                 <!--  Sección Direccion -->
                 <address class="flex flex-col gap-5 not-italic"> 
-                    <h2 class="text-[20px] font-bold   mt-4 bg-blue-900 text-white text-center rounded-full">Dirección</h2>
-                    <div class="flex flex-col gap-5 sm:flex-row justify-between sm:gap-2.5  md:gap-5">
-                        <div class="sm:w-[32.5%]">
-                            <label for="pais"><h3 class="text-lg font-semibold ">País:</h3></label>
-                            <select class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-[white]" id="pais" name="pais">
+                    <h2 class="text-[18px] font-semibold text-[#1E40AF] pb-2 mb-4 border-b-2 border-gray-200/60">Dirección</h2>
+                    <div class="flex flex-col gap-5 md:flex-row justify-between sm:gap-2.5  md:gap-5">
+                        <div class="w-full md:w-[32.5%]">
+                            <label for="pais"><h3 class="text-[14px]  font-semibold ">País:</h3></label>
+                            <select class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 px-3 w-full text-[14px] focus:outline-2 outline-[#3B82F6] cursor-pointer" id="pais" name="pais">
                                 <option value="" selected disabled>Seleccione un País:</option>
                                 <option value="es">España</option>
                                 <option value="ve">Venezuela</option>
                                 <option value="us">Estados Unidos</option>
                             </select>
                         </div>
-                        <div class="sm:w-[35%] ">
-                            <label for="estado"><h3 class="text-lg font-semibold ">Estado:</h3></label>
-                            <select class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white" id="estado" name="estado">
+                        <div class="w-full md:w-[35%] ">
+                            <label for="estado"><h3 class="text-[14px]  font-semibold ">Estado:</h3></label>
+                            <select class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 px-3 w-full text-[14px] focus:outline-2 outline-[#3B82F6] cursor-pointer"  id="estado" name="estado">
                                 <option value="" selected disabled>Seleccione un Estado:</option>
                                 <option value="madrid">Madrid</option>
                                 <option value="caracas">Caracas</option>
                                 <option value="new_york">New York</option>
                             </select>
                         </div>
-                        <div class="sm:w-[32.5%]">
-                            <label for="codigo_postal"><h3 class="text-lg font-semibold ">Código Postal:</h3></label>
-                            <input class="border-0 outline-blue-950 rounded-full py-1.5 px-3 w-full bg-gray-700/40 placeholder:text-[white] text-white placeholder:text-[13px] md:placeholder:text-[14px]" placeholder="Introduzca el código postal" name="codigo_postal" id="codigo_postal" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9">
+                        <div class="w-full md:w-[32.5%]">
+                            <label for="codigo_postal"><h3 class="text-[14px]  font-semibold ">Código Postal:</h3></label>
+                            <input class="border-2 border-gray-200/80 mt-2 rounded-[8px]  py-2 px-3 w-full focus:outline-2 outline-[#3B82F6]" placeholder="Introduzca el código postal" name="codigo_postal" id="codigo_postal" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9">
                         </div>
                     </div>
                 </address>
                 <div class="mt-5 flex flex-col justify-center items-center sm:mt-10">
-                    <input class="border-0 bg-blue-900 rounded-full py-1.5 px-3 w-full max-w-[864px] text-white text-[16px] font-bold"  type="submit" value="Enviar">
+                    <button class="flex justify-center gap-2.5 border-0 bg-[linear-gradient(to_right,#2660E7,#4E46E5)] hover:bg-[linear-gradient(to_right,#1D4DD6,#3535AA)] cursor-pointer rounded-[10px] py-6 px-4 w-full max-w-[864px]">
+                        <span class="text-white text-[18px] font-bold">Enviar</span>
+                        <img  src="images/enviar.svg" width="18px" alt="">
+                    </button>
                 </div>
             </div>
         </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#fecha-input", {
+            dateFormat: "d/m/Y",
+            maxDate: "30.04.2017",
+            minDate: "01.01.1945"
+        });
+    </script>
 </body>
 </html>
